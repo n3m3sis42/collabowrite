@@ -12,11 +12,15 @@
   </head>
   <body>
     {{> _header}}
+    {{#if user}}
+      {{> _add-btn}}
+    {{/if}}
     <main>
     <div class="container">
       {{{body}}}
     </div>
     </main>
+    {{> _footer}}
     <!-- JQuery for Materialize -->
     <script
          src="https://code.jquery.com/jquery-3.3.1.js"
