@@ -13,7 +13,7 @@
   <body>
     {{> _header}}
     {{#if user}}
-      {{> _add-btn}}
+    {{> _add-btn}}
     {{/if}}
     <main>
     <div class="container">
@@ -27,11 +27,17 @@
          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
          crossorigin="anonymous">
     </script>
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
     <!-- Compiled and minified JavaScript for Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
       $(document).ready(() => {
         $('.button-collapse').sideNav();
+        $('select').material_select();
+      });
+
+      CKEDITOR.replace('body', {
+        plugins: 'wysiwygarea,toolbar,basicstyles,link'
       });
     </script>
   </body>
