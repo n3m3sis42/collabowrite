@@ -1,6 +1,9 @@
 <h1>Welcome</h1>
 <p>Welcome to Collabowrite 1.0.0</p>
 <p>Post story ideas to share with the world, or for your own personal reference.</p>
-<a class="btn red darken-1" href="/auth/google">
-  <i class="fa fa-google left"></i> Login With Google
-</a>
+
+{{#unless user}}
+  <a class="btn red darken-1" href="/auth/google">
+    <i class="fa fa-google left"></i> Login With Google
+  </a>
+{{/unless}}
