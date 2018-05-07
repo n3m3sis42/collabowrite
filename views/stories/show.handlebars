@@ -35,7 +35,7 @@
             <p class="card-title">{{commentBody}}</p>
             <div class="chip">
               <img src="{{commentUser.image}}" alt="Contact Person">
-              {{commentUser.firstName}} {{commentUser.lastName}}
+              <a href="/stories/user/{{commentUser.id}}">{{commentUser.firstName}} {{commentUser.lastName}}</a>
             </div>
             <br>
             <small>Posted on {{formatDate comment.date 'MMMM Do YYYY'}}</small>

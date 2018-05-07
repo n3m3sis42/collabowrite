@@ -23,8 +23,34 @@ router.get('/show/:id', (req, res) => {
     .populate('user')
     .populate('comments.commentUser')
     .then(story => {
-      res.render('stories/show', {
-        story: story
+      if (story.status === 'public' || story.user._id == req.user.id) {
+        res.render('stories/show', {
+          story: story
+        });
+      } else {
+        res.redirect('/stories');
+      }
+    });
+});
+
+// Show Stories for a Specific User
+router.get('/user/:userId', (req, res) => {
+  Story.find({ user: req.params.userId, status: 'public' })
+    .populate('user')
+    .then(stories => {
+      res.render('stories/index', {
+        stories: stories
+      });
+    });
+});
+
+// Show Stories for Logged In User
+router.get('/my', ensureAuthenticated, (req, res) => {
+  Story.find({ user: req.user.id })
+    .populate('user')
+    .then(stories => {
+      res.render('stories/index', {
+        stories: stories
       });
     });
 });
